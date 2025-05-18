@@ -1,7 +1,7 @@
 import './App.css';
 import Header from './components/Header/Header.tsx';
 import Container from './components/Container/Container.tsx';
-import Intro from './components/Intro/Intro.tsx';
+import IntroSection from '@/components/IntroSection/IntroSection.tsx';
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor
               dolorum, fugiat iusto laudantium minima praesentium.
             </p>
-            <Intro />
+            <IntroSection />
           </Container>
         </main>
       </div>

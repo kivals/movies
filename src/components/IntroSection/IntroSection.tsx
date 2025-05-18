@@ -2,7 +2,7 @@ import styles from './Intro.module.css';
 
 import intro from '@/assets/images/intro.png';
 
-const Intro = () => {
+const IntroSection = () => {
   return (
     <section className={styles.intro}>
       <div className={styles.content}>
@@ -24,4 +24,4 @@ const Intro = () => {
   );
 };
 
-export default Intro;
+export default IntroSection;
