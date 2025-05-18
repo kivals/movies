@@ -1,0 +1,21 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 999px;
+  padding: 0 20px;
+  height: 40px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 0 0 1px rgba(0, 123, 255, 0.5);
+}
+
+.input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  color: #333;
+  background: transparent;
+}
