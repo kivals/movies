@@ -1,4 +1,4 @@
-import styles from './Intro.module.css';
+import styles from './IntroSection.module.css';
 
 import intro from '@/assets/images/intro.png';
 

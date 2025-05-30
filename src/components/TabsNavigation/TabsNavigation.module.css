@@ -1,0 +1,23 @@
+.tabs {
+  display: flex;
+  gap: 10px
+}
+
+.tab {
+  cursor: pointer;
+  color: #222121;
+  font-size: 1.1rem;
+  background-color: transparent;
+  height: 44px;
+  width: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tab.active {
+  color: #FFFFFF;
+  background-color: #080423;
+  border-radius: 25px;
+  font-weight: 700;
+}

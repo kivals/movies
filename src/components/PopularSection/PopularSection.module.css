@@ -1,0 +1,16 @@
+.viewAll {
+  color: #080423;
+  font-size: 1.1rem;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.viewAll:hover {
+  text-decoration: underline;
+}
