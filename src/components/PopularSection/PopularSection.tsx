@@ -1,27 +1,36 @@
 import TabsNavigation from '@/components/TabsNavigation/TabsNavigation.tsx';
-import { useState } from 'react';
 
 import styles from './PopularSection.module.css';
 import MoviesGrid from '@/components/MoviesGrid/MoviesGrid.tsx';
-
-const movies = Array(8)
-  .fill(0)
-  .map((_, i) => ({
-    id: i,
-    poster: '/assets/shawshank.png',
-    title: 'Побег из Шоушенка',
-    year: 1994,
-    rating: 9,
-  }));
+import { useGetMoviesQuery } from '@/modules/movies/api.ts';
+import { useAppDispatch, useAppSelector } from '@/app/store.ts';
+import { setFilter } from '@/app/filters.reducer.ts';
 
 const PopularSection = () => {
-  const [activeTab, setActiveTab] = useState(1);
+  const activeTab = useAppSelector(
+    state => state.userFilters.popularMoviesFilter,
+  );
+  const dispatch = useAppDispatch();
+
+  const queryParams = {
+    page: '1',
+    limit: '10',
+    type: activeTab,
+    'rating.kp': '8-10',
+  };
+
+  const { data: movies } = useGetMoviesQuery(queryParams);
 
   return (
     <section>
-      <TabsNavigation activeTab={activeTab} onChangeTab={setActiveTab} />
+      <TabsNavigation
+        activeTab={activeTab}
+        onChangeTab={tab => {
+          dispatch(setFilter(tab));
+        }}
+      />
       <button className={styles.viewAll}>Смотреть все →</button>
-      <MoviesGrid movies={movies} />
+      {movies?.docs && <MoviesGrid movies={movies.docs} />}
     </section>
   );
 };

@@ -1,17 +1,16 @@
-import type { IMovie } from '@/components/types/types.ts';
-
 import MovieCard from '@/components/MovieCard/MovieCard.tsx';
 import styles from './MoviesGrid.module.css';
+import type { Movie } from '@/shared/types/movie.ts';
 
 interface Props {
-  movies: IMovie[];
+  movies: Movie[];
 }
 
 const MoviesGrid = ({ movies }: Props) => {
   return (
     <div className={styles.grid}>
       {movies.map(movie => (
-        <MovieCard key={movie.id} {...movie} />
+        <MovieCard key={movie.id} movie={movie} />
       ))}
     </div>
   );

@@ -13,4 +13,17 @@ export interface Movie {
   poster: {
     url: string;
   };
+  rating: {
+    kp: number;
+  };
+}
+
+export type ContentType = 'movie' | 'tv-series' | 'anime';
+
+export interface MoviesResponse {
+  docs: Movie[];
+  total: number;
+  limit: number;
+  page: number;
+  pages: number;
 }

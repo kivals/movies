@@ -9,7 +9,7 @@ const queryParams = {
 };
 
 const IntroSection = () => {
-  const { data, isLoading } = useGetRandomMoviesQuery(queryParams);
+  const { data: movie, isLoading } = useGetRandomMoviesQuery(queryParams);
 
   if (isLoading) {
     return <div>LOADING....</div>;
@@ -19,15 +19,15 @@ const IntroSection = () => {
       <div className={styles.content}>
         <h2 className={styles.title}>Уже в кино</h2>
         <p className={styles.subtitle}>
-          {data?.name} ({data?.year})
+          {movie?.name} ({movie?.year})
         </p>
-        <p className={styles.description}>{data?.description}</p>
+        <p className={styles.description}>{movie?.description}</p>
 
         <button className={styles.button}>Смотреть</button>
       </div>
       <div className={styles.imageContent}>
         <div className={styles.wrapper}>
-          <img className={styles.image} src={data?.poster.url} alt="Афиша" />
+          <img className={styles.image} src={movie?.poster.url} alt="Афиша" />
         </div>
       </div>
     </section>

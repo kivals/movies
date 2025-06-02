@@ -1,5 +1,5 @@
 import { baseApi } from '@/shared/api.ts';
-import type { Movie } from '@/shared/types/movie.ts';
+import type { Movie, MoviesResponse } from '@/shared/types/movie.ts';
 
 export const moviesApi = baseApi.injectEndpoints({
   endpoints: build => ({
@@ -9,7 +9,13 @@ export const moviesApi = baseApi.injectEndpoints({
         params,
       }),
     }),
+    getMovies: build.query<MoviesResponse, Record<string, string>>({
+      query: params => ({
+        url: '/movie',
+        params,
+      }),
+    }),
   }),
 });
 
-export const { useGetRandomMoviesQuery } = moviesApi;
+export const { useGetRandomMoviesQuery, useGetMoviesQuery } = moviesApi;

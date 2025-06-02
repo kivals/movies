@@ -1,39 +1,39 @@
-import type { ITabs } from '@/components/types/types.ts';
 import cn from 'classnames';
 
 import styles from './TabsNavigation.module.css';
+import type { ContentType } from '@/shared/types/movie.ts';
 
-const tabs: ITabs[] = [
+const tabs: { type: ContentType; name: string }[] = [
   {
-    id: 1,
+    type: 'movie',
     name: 'Популярные фильмы',
   },
   {
-    id: 2,
+    type: 'tv-series',
     name: 'Популярные сериалы',
   },
   {
-    id: 3,
-    name: 'Подборка фильмов',
+    type: 'anime',
+    name: 'Популярное аниме',
   },
 ];
 
 interface Props {
-  activeTab: number;
-  onChangeTab: (id: number) => void;
+  activeTab: ContentType;
+  onChangeTab: (type: ContentType) => void;
 }
 
 const TabsNavigation = ({ activeTab, onChangeTab }: Props) => {
   return (
     <div>
       <ul className={styles.tabs}>
-        {tabs.map(({ id, name }) => (
+        {tabs.map(({ type, name }) => (
           <li
             className={cn(styles.tab, {
-              [styles.active]: activeTab === id,
+              [styles.active]: activeTab === type,
             })}
-            key={id}
-            onClick={() => onChangeTab(id)}
+            key={type}
+            onClick={() => onChangeTab(type)}
           >
             {name}
           </li>

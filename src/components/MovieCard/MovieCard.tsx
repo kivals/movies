@@ -1,17 +1,21 @@
-import type { IMovie } from '@/components/types/types.ts';
-import posterImg from '@/assets/images/shawshank.png';
-
 import styles from './MovieCard.module.css';
+import type { Movie } from '@/shared/types/movie.ts';
 
-const MovieCard = ({ id, poster, year, rating, title }: IMovie) => {
+interface MovieCardProps {
+  movie: Movie;
+}
+
+const MovieCard = ({ movie }: MovieCardProps) => {
   return (
     <article className={styles.movieCard}>
-      <img src={posterImg} alt={title} className={styles.poster} />
+      <img src={movie.poster.url} alt={movie.name} className={styles.poster} />
       <div className={styles.info}>
-        <h4 className={styles.title}>{title}</h4>
+        <h4 className={styles.title}>{movie.name}</h4>
         <div className={styles.meta}>
-          <span className={styles.year}>{year}г.</span>
-          <span className={styles.rating}>{rating}/10</span>
+          <span className={styles.year}>{movie.year}г.</span>
+          <span className={styles.rating}>
+            {Number(movie.rating.kp).toFixed(1)}/10
+          </span>
         </div>
       </div>
     </article>
