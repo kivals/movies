@@ -1,5 +1,5 @@
 import styles from './IntroSection.module.css';
-
+import Skeleton from '@/components/IntroSection/Skeleton.tsx';
 import { useGetRandomMoviesQuery } from '@/modules/movies/api.ts';
 
 const queryParams = {
@@ -11,25 +11,32 @@ const queryParams = {
 const IntroSection = () => {
   const { data: movie, isLoading } = useGetRandomMoviesQuery(queryParams);
 
-  if (isLoading) {
-    return <div>LOADING....</div>;
-  }
   return (
     <section className={styles.intro}>
-      <div className={styles.content}>
-        <h2 className={styles.title}>Уже в кино</h2>
-        <p className={styles.subtitle}>
-          {movie?.name} ({movie?.year})
-        </p>
-        <p className={styles.description}>{movie?.description}</p>
+      {isLoading ? (
+        <Skeleton />
+      ) : (
+        <>
+          <div className={styles.content}>
+            <h2 className={styles.title}>Уже в кино</h2>
+            <p className={styles.subtitle}>
+              {movie?.name} ({movie?.year})
+            </p>
+            <p className={styles.description}>{movie?.description}</p>
 
-        <button className={styles.button}>Смотреть</button>
-      </div>
-      <div className={styles.imageContent}>
-        <div className={styles.wrapper}>
-          <img className={styles.image} src={movie?.poster.url} alt="Афиша" />
-        </div>
-      </div>
+            <button className={styles.button}>Смотреть</button>
+          </div>
+          <div className={styles.imageContent}>
+            <div className={styles.wrapper}>
+              <img
+                className={styles.image}
+                src={movie?.poster.url}
+                alt="Афиша"
+              />
+            </div>
+          </div>
+        </>
+      )}
     </section>
   );
 };

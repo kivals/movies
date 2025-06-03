@@ -1,6 +1,6 @@
 .intro {
   display: flex;
-  gap:20px;
+  gap: 20px;
   background: #080423;
   padding: 34px;
   border-radius: 10px;
@@ -73,13 +73,38 @@
 @media (max-width: 768px) {
   .intro {
     flex-direction: column;
+    margin-left: -8px;
+    margin-right: -8px;
+    padding: 20px;
   }
+
   .content {
+    order: 2;
     width: auto;
   }
 
   .imageContent {
+    order: 1;
     width: auto;
+  }
+
+  .title {
+    font-size: 1rem;
+    margin-bottom: 25px;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+
+  .description {
+    font-size: 0.8rem;
+    margin-bottom: 26px;
+  }
+
+  .imageContent {
+    min-height: 300px;
   }
 
 }

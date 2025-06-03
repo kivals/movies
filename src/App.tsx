@@ -11,11 +11,6 @@ function App() {
       <div className="container">
         <main>
           <Container>
-            <h1>kivals-movie проект</h1>
-            <p style={{ fontWeight: 400 }}>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor
-              dolorum, fugiat iusto laudantium minima praesentium.
-            </p>
             <IntroSection />
             <PopularSection />
           </Container>
