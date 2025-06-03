@@ -8,6 +8,7 @@ import { setFilter } from '@/app/filters.reducer.ts';
 import Skeleton from '@/components/PopularSection/Skeleton.tsx';
 
 const PopularSection = () => {
+  console.log('PopularSection render');
   const activeTab = useAppSelector(
     state => state.userFilters.popularMoviesFilter,
   );
@@ -20,7 +21,7 @@ const PopularSection = () => {
     'rating.kp': '8-10',
   };
 
-  const { data: movies, isLoading } = useGetMoviesQuery(queryParams);
+  const { data: movies, isFetching } = useGetMoviesQuery(queryParams);
   return (
     <section>
       <TabsNavigation
@@ -30,7 +31,7 @@ const PopularSection = () => {
         }}
       />
       <button className={styles.viewAll}>Смотреть все →</button>
-      {isLoading ? (
+      {isFetching ? (
         <Skeleton />
       ) : (
         movies?.docs && <MoviesGrid movies={movies.docs} />
