@@ -5,6 +5,7 @@ import MoviesGrid from '@/components/MoviesGrid/MoviesGrid.tsx';
 import { useGetMoviesQuery } from '@/modules/movies/api.ts';
 import { useAppDispatch, useAppSelector } from '@/app/store.ts';
 import { setFilter } from '@/app/filters.reducer.ts';
+import Skeleton from '@/components/PopularSection/Skeleton.tsx';
 
 const PopularSection = () => {
   const activeTab = useAppSelector(
@@ -19,8 +20,7 @@ const PopularSection = () => {
     'rating.kp': '8-10',
   };
 
-  const { data: movies } = useGetMoviesQuery(queryParams);
-
+  const { data: movies, isLoading } = useGetMoviesQuery(queryParams);
   return (
     <section>
       <TabsNavigation
@@ -30,7 +30,11 @@ const PopularSection = () => {
         }}
       />
       <button className={styles.viewAll}>Смотреть все →</button>
-      {movies?.docs && <MoviesGrid movies={movies.docs} />}
+      {isLoading ? (
+        <Skeleton />
+      ) : (
+        movies?.docs && <MoviesGrid movies={movies.docs} />
+      )}
     </section>
   );
 };
