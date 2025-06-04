@@ -8,7 +8,6 @@ import { setFilter } from '@/app/filters.reducer.ts';
 import Skeleton from '@/components/PopularSection/Skeleton.tsx';
 
 const PopularSection = () => {
-  console.log('PopularSection render');
   const activeTab = useAppSelector(
     state => state.userFilters.popularMoviesFilter,
   );

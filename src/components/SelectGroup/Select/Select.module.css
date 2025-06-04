@@ -1,0 +1,105 @@
+.select {
+  appearance: none;
+  @supports (appearance: base-select) {
+    &,
+    &::picker(select) {
+      appearance: base-select;
+    }
+  }
+}
+
+.select {
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  min-width: 200px;
+  align-items: center;
+  color: #515151;
+  padding-block: 10px;
+  padding-inline: 15px 30px;
+  border-radius: 35px;
+  border: 2px solid #bdb3b3;
+  cursor: pointer;
+  font-weight: 500;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 32 32' stroke-width='1.5' stroke='%23FFF' class='size-8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='m19.5 8.25-7.5 7.5-7.5-7.5' /%3E%3C/svg%3E%0A") right 10px center / 20px no-repeat;
+
+  @supports (appearance: base-select) {
+    padding-inline: 15px;
+    background-image: none;
+    &::picker-icon {
+      content: "";
+      width: 30px;
+      height: 30px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='%23000' class='size-6'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='m19.5 8.25-7.5 7.5-7.5-7.5' /%3E%3C/svg%3E%0A");
+      transition: rotate 0.2s ease-out;
+    }
+
+    &:open::picker-icon {
+      rotate: 180deg;
+    }
+
+    &::picker(select) {
+      padding: 0;
+      margin-top: 5px;
+      border: 2px solid #bdb3b3;
+      background: white;
+      border-radius: 15px;
+      font-weight: 500;
+
+      opacity: 0;
+      height: 0;
+      overflow: clip;
+      transition: height 0.5s ease-out, opacity 0.5s ease-out, overlay 0.5s,
+      display 0.5s;
+
+      transition-behavior: allow-discrete;
+    }
+
+    &:open::picker(select) {
+      opacity: 1;
+      height: calc-size(auto, size);
+      overflow: auto;
+      @starting-style {
+        opacity: 0;
+        height: 0;
+      }
+    }
+
+    .option {
+      padding: 10px;
+      border-top: 1px solid #bdb3b3;
+      cursor: pointer;
+      transition-property: color, background;
+      transition-duration: 0.2s;
+      transition-timing-function: ease-out;
+
+      &:where(:hover, :focus, :active) {
+        background: #bdb3b3;
+        color: white;
+      }
+
+      &:checked {
+        background: #080423;
+        color: white;
+      }
+
+      &::checkmark {
+        display: none;
+      }
+
+      &:first-child {
+        border: 0;
+      }
+    }
+  }
+}
+
+.srOnly {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
