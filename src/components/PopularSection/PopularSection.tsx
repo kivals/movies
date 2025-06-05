@@ -5,7 +5,7 @@ import MoviesGrid from '@/components/MoviesGrid/MoviesGrid.tsx';
 import { useGetMoviesQuery } from '@/modules/movies/api.ts';
 import { useAppDispatch, useAppSelector } from '@/app/store.ts';
 import { setFilter } from '@/app/filters.reducer.ts';
-import Skeleton from '@/components/PopularSection/Skeleton.tsx';
+import SkeletonCardList from '@/components/SkeletonCardList/SkeletonCardList.tsx';
 
 const PopularSection = () => {
   const activeTab = useAppSelector(
@@ -31,7 +31,7 @@ const PopularSection = () => {
       />
       <button className={styles.viewAll}>Смотреть все →</button>
       {isFetching ? (
-        <Skeleton />
+        <SkeletonCardList />
       ) : (
         movies?.docs && <MoviesGrid movies={movies.docs} />
       )}

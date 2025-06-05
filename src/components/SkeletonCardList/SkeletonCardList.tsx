@@ -1,7 +1,7 @@
-import styles from './Skeleton.module.css';
+import styles from './SkeletonCardList.module.css';
 import cn from 'classnames';
 
-const Skeleton = () => {
+const SkeletonCardList = () => {
   return (
     <div className={styles.grid}>
       {[...Array(8)].map((_, index) => (
@@ -14,4 +14,4 @@ const Skeleton = () => {
   );
 };
 
-export default Skeleton;
+export default SkeletonCardList;
