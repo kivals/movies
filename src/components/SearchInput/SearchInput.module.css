@@ -18,4 +18,9 @@
   font-size: 1.2rem;
   color: #333;
   background: transparent;
+  display: flex;
+}
+
+.icon {
+  cursor: pointer;
 }

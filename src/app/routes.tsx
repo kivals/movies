@@ -22,7 +22,6 @@ export const router = createBrowserRouter([
         path: '/movie/:movieId',
         loader: ({ params }) => {
           loadStore().then(async () => {
-            console.log('params.id', params);
             store.dispatch(
               moviesApi.util.prefetch('getMovieById', params.movieId ?? '', {}),
             );
@@ -31,35 +30,10 @@ export const router = createBrowserRouter([
         },
         element: <MoviePage />,
       },
+      {
+        path: '/search/:query',
+        element: <div>"Search"</div>,
+      },
     ],
   },
 ]);
-
-/*const AppRoutes = () => {
-  const navigationRoutes = [
-    { path: '/', element: <Home /> },
-    {
-      path: '/movie/:movieId',
-      element: <MoviePage />,
-      loader: async ({ params }: LoaderFunctionArgs) => {
-        const movieId = params.movieId;
-        console.log(movieId);
-        return { movieId };
-      },
-    },
-  ];
-  return (
-    <Routes>
-      {navigationRoutes.map(route => (
-        <Route
-          key={route.path}
-          path={route.path}
-          element={route.element}
-          loader={route.loader}
-        />
-      ))}
-    </Routes>
-  );
-};
-
-export default AppRoutes;*/
