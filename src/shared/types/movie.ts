@@ -14,7 +14,7 @@ export interface Movie {
     url: string;
   };
   rating: {
-    kp: number;
+    kp: string;
   };
 }
 

@@ -2,6 +2,7 @@ import styles from './MovieCard.module.css';
 import type { Movie } from '@/shared/types/movie.ts';
 import fake_poster from '@/assets/images/fake_poster.png';
 import { Link } from 'react-router';
+import { prepareUserRating } from '@/shared/utils/user-rating.ts';
 
 interface MovieCardProps {
   movie: Movie;
@@ -25,7 +26,7 @@ const MovieCard = ({ movie }: MovieCardProps) => {
               {movie.year && `${movie.year}г.`}
             </span>
             <span className={styles.rating}>
-              {Number(movie.rating.kp).toFixed(1)}/10
+              {prepareUserRating(movie.rating.kp)}
             </span>
           </div>
         </div>
