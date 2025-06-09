@@ -15,7 +15,16 @@ export const moviesApi = baseApi.injectEndpoints({
         params,
       }),
     }),
+    getMovieById: build.query<Movie, string>({
+      query: movieId => ({
+        url: `/v1.4/movie/${movieId}`,
+      }),
+    }),
   }),
 });
 
-export const { useGetRandomMoviesQuery, useGetMoviesQuery } = moviesApi;
+export const {
+  useGetRandomMoviesQuery,
+  useGetMoviesQuery,
+  useGetMovieByIdQuery,
+} = moviesApi;
