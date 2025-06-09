@@ -16,6 +16,16 @@ export interface Movie {
   rating: {
     kp: string;
   };
+  genres: {
+    name: string;
+  }[];
+  countries: {
+    name: string;
+  }[];
+  persons: {
+    name: string;
+    enProfession: string;
+  }[];
 }
 
 export type ContentType = 'movie' | 'tv-series' | 'anime';
