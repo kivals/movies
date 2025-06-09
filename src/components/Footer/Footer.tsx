@@ -1,6 +1,7 @@
 import Container from '@/components/Container/Container.tsx';
 
 import styles from './Footer.module.css';
+import { Link } from 'react-router';
 
 const Footer = () => {
   return (
@@ -10,19 +11,19 @@ const Footer = () => {
           <h1 className={styles.logo}>kinomonster</h1>
           <ul className={styles.menu}>
             <li>
-              <a href="#" className={styles.link}>
+              <Link to="/" className={styles.link}>
                 Главная
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className={styles.link}>
+              <Link to="/" className={styles.link}>
                 Популярные фильмы
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className={styles.link}>
+              <Link to="/" className={styles.link}>
                 Популярные сериалы
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
