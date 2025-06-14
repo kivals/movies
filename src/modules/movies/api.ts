@@ -3,6 +3,7 @@ import type { Movie, MoviesResponse } from '@/shared/types/movie.ts';
 
 export const moviesApi = baseApi.injectEndpoints({
   endpoints: build => ({
+    //TODO Record<string, string> надо типизировать
     getRandomMovies: build.query<Movie, Record<string, string>>({
       query: params => ({
         url: '/v1.4/movie/random',
@@ -20,6 +21,15 @@ export const moviesApi = baseApi.injectEndpoints({
         url: `/v1.4/movie/${movieId}`,
       }),
     }),
+    searchMovie: build.query<
+      MoviesResponse,
+      Record<string, string | number | undefined>
+    >({
+      query: params => ({
+        url: '/v1.4/movie/search',
+        params,
+      }),
+    }),
   }),
 });
 
@@ -27,4 +37,5 @@ export const {
   useGetRandomMoviesQuery,
   useGetMoviesQuery,
   useGetMovieByIdQuery,
+  useSearchMovieQuery,
 } = moviesApi;

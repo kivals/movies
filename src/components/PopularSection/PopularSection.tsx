@@ -1,6 +1,5 @@
 import TabsNavigation from '@/components/TabsNavigation/TabsNavigation.tsx';
 
-import styles from './PopularSection.module.css';
 import MoviesGrid from '@/components/MoviesGrid/MoviesGrid.tsx';
 import { useGetMoviesQuery } from '@/modules/movies/api.ts';
 import { useAppDispatch, useAppSelector } from '@/app/store.ts';
@@ -24,12 +23,12 @@ const PopularSection = () => {
   return (
     <section>
       <TabsNavigation
+        style={{ marginBottom: '20px' }}
         activeTab={activeTab}
         onChangeTab={tab => {
           dispatch(setFilter(tab));
         }}
       />
-      <button className={styles.viewAll}>Смотреть все →</button>
       {isFetching ? (
         <SkeletonCardList />
       ) : (

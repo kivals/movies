@@ -1,5 +1,6 @@
 import { prepareUserRating } from '@/shared/utils/user-rating.ts';
 import type { Movie } from '@/shared/types/movie.ts';
+import fake_poster from '@/assets/images/fake_poster.png';
 
 import styles from './MovieInfo.module.css';
 
@@ -11,7 +12,13 @@ const MovieInfo = ({ movie }: Props) => {
   return (
     <div className={styles.container}>
       <div className={styles.imageWrapper}>
-        <img className={styles.image} src={movie.poster.url} alt="" />
+        <img
+          className={styles.image}
+          src={
+            movie.poster && movie.poster.url ? movie.poster.url : fake_poster
+          }
+          alt={movie.name}
+        />
       </div>
       <div className={styles.content}>
         <div>
@@ -22,26 +29,36 @@ const MovieInfo = ({ movie }: Props) => {
           <h2>О фильме</h2>
           <div className={styles.info}>
             <div>Жанр:</div>
-            <div>{movie.genres.map(genre => genre?.name ?? '').join(', ')}</div>
+            <div>
+              {movie.genres
+                ? movie.genres.map(genre => genre?.name ?? '').join(', ')
+                : '-'}
+            </div>
             <div>Страна:</div>
             <div>
-              {movie.countries.map(country => country?.name ?? '').join(', ')}
+              {movie.countries
+                ? movie.countries.map(country => country?.name ?? '').join(', ')
+                : '-'}
             </div>
             <div>Год:</div>
             <div>{movie.year}</div>
             <div>Режиссер:</div>
             <div>
               {movie.persons
-                .filter(({ enProfession }) => enProfession === 'director')
-                .map(person => person.name)
-                .join(', ') || ' - '}
+                ? movie.persons
+                    .filter(({ enProfession }) => enProfession === 'director')
+                    .map(person => person.name)
+                    .join(', ') || ' - '
+                : '-'}
             </div>
             <div>В ролях:</div>
             <div>
               {movie.persons
-                .filter(({ enProfession }) => enProfession === 'actor')
-                .map(person => person.name)
-                .join(', ') || ' - '}
+                ? movie.persons
+                    .filter(({ enProfession }) => enProfession === 'actor')
+                    .map(person => person.name)
+                    .join(', ') || ' - '
+                : '-'}
             </div>
           </div>
         </div>

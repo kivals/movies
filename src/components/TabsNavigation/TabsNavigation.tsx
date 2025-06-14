@@ -2,6 +2,7 @@ import cn from 'classnames';
 
 import styles from './TabsNavigation.module.css';
 import type { ContentType } from '@/shared/types/movie.ts';
+import type { CSSProperties } from 'react';
 
 const tabs: { type: ContentType; name: string }[] = [
   {
@@ -21,11 +22,12 @@ const tabs: { type: ContentType; name: string }[] = [
 interface Props {
   activeTab: ContentType;
   onChangeTab: (type: ContentType) => void;
+  style?: CSSProperties;
 }
 
-const TabsNavigation = ({ activeTab, onChangeTab }: Props) => {
+const TabsNavigation = ({ activeTab, onChangeTab, style }: Props) => {
   return (
-    <div>
+    <div style={style}>
       <ul className={styles.tabs}>
         {tabs.map(({ type, name }) => (
           <li

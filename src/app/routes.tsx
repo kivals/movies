@@ -4,6 +4,7 @@ import { createBrowserRouter } from 'react-router';
 import BaseLayout from '@/layouts/BaseLayout/BaseLayout.tsx';
 import { store } from '@/app/store.ts';
 import { moviesApi } from '@/modules/movies/api.ts';
+import SearchPage from '@/pages/SearchPage/SearchPage.tsx';
 
 const loadStore = () =>
   new Promise(resolve => {
@@ -32,7 +33,23 @@ export const router = createBrowserRouter([
       },
       {
         path: '/search/:query',
-        element: <div>"Search"</div>,
+        loader: ({ params }) => {
+          loadStore().then(async () => {
+            store.dispatch(
+              moviesApi.util.prefetch(
+                'searchMovie',
+                {
+                  page: '1',
+                  limit: '10',
+                  query: params.query ?? '',
+                },
+                {},
+              ),
+            );
+          });
+          return null;
+        },
+        element: <SearchPage />,
       },
     ],
   },
