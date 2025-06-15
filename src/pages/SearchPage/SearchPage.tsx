@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from './SearchPage.module.css';
 import { Pagination } from '@/shared/ui';
+import { Link } from 'react-router';
 
 const SearchPage = () => {
   const [page, setPage] = useState(1);
@@ -36,7 +37,9 @@ const SearchPage = () => {
           />
           <div>
             {movies.docs.map(movie => (
-              <MovieInfo key={movie.id} movie={movie as Movie} />
+              <Link to={`/movie/${movie.id}`} key={movie.id}>
+                <MovieInfo key={movie.id} movie={movie as Movie} />
+              </Link>
             ))}
           </div>
         </>
