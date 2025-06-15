@@ -27,7 +27,8 @@ const SearchPage = () => {
   return (
     <section>
       <h1 className={styles.title}>Результаты поиска</h1>
-      {movies && (
+
+      {movies && movies.docs.length ? (
         <>
           <Pagination
             max={movies?.pages}
@@ -43,6 +44,8 @@ const SearchPage = () => {
             ))}
           </div>
         </>
+      ) : (
+        <h2>Данных нет</h2>
       )}
     </section>
   );
