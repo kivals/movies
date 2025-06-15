@@ -1,9 +1,9 @@
-import Select from '@/components/SelectGroup/Select/Select.tsx';
 import { useGetAvailableFieldsQuery } from '@/modules/categories/api.ts';
-
-import styles from './SelectGroup.module.css';
 import { useAppDispatch, useAppSelector } from '@/app/store.ts';
 import { setCountry, setGenre } from '@/app/filters.reducer.ts';
+import { Select } from '@/features';
+
+import styles from './SelectGroup.module.css';
 
 const SelectGroup = () => {
   const dispatch = useAppDispatch();

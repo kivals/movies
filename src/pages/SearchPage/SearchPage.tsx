@@ -1,11 +1,11 @@
 import type { Movie } from '@/shared/types/movie.ts';
-import MovieInfo from '@/components/MovieInfo/MovieInfo.tsx';
-import Pagination from '@/components/Pagination/Pagination.tsx';
+import MovieInfo from '@/widgets/ui/MovieInfo/MovieInfo.tsx';
 import { useSearchMovieQuery } from '@/modules/movies/api.ts';
 import { useEffect, useState } from 'react';
 
 import { useParams } from 'react-router-dom';
 import styles from './SearchPage.module.css';
+import { Pagination } from '@/shared/ui';
 
 const SearchPage = () => {
   const [page, setPage] = useState(1);

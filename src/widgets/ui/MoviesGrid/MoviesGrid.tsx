@@ -1,4 +1,4 @@
-import MovieCard from '@/components/MovieCard/MovieCard.tsx';
+import { MovieCard } from '@/entities/';
 import type { Movie } from '@/shared/types/movie.ts';
 
 import styles from './MoviesGrid.module.css';

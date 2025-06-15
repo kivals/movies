@@ -1,7 +1,7 @@
 import Home from '@/pages/Home/Home.tsx';
 import MoviePage from '@/pages/MoviePage/MoviePage.tsx';
 import { createBrowserRouter } from 'react-router';
-import BaseLayout from '@/layouts/BaseLayout/BaseLayout.tsx';
+import BaseLayout from '@/app/layouts/BaseLayout/BaseLayout.tsx';
 import { store } from '@/app/store.ts';
 import { moviesApi } from '@/modules/movies/api.ts';
 import SearchPage from '@/pages/SearchPage/SearchPage.tsx';

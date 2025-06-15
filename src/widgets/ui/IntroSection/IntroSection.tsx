@@ -1,5 +1,5 @@
 import styles from './IntroSection.module.css';
-import Skeleton from '@/components/IntroSection/Skeleton.tsx';
+import Skeleton from '@/widgets/ui/IntroSection/Skeleton.tsx';
 import { useGetRandomMoviesQuery } from '@/modules/movies/api.ts';
 
 const queryParams = {

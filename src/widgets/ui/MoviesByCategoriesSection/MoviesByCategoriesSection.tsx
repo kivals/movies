@@ -1,10 +1,10 @@
-import SelectGroup from '@/components/SelectGroup/SelectGroup.tsx';
-import MoviesGrid from '@/components/MoviesGrid/MoviesGrid.tsx';
+import SelectGroup from '@/widgets/ui/SelectGroup/SelectGroup.tsx';
+import MoviesGrid from '@/widgets/ui/MoviesGrid/MoviesGrid.tsx';
 import { useAppSelector } from '@/app/store.ts';
 import { useGetMoviesQuery } from '@/modules/movies/api.ts';
 
 import styles from './MoviesByCategoriesSection.module.css';
-import SkeletonCardList from '@/components/SkeletonCardList/SkeletonCardList.tsx';
+import SkeletonCardList from '@/features/SkeletonCardList/SkeletonCardList.tsx';
 
 const MoviesByCategoriesSection = () => {
   const selectedGenre = useAppSelector(

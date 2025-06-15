@@ -1,9 +1,9 @@
 import { Link } from 'react-router';
-import BackArrow from '@/assets/images/svg/back-arrow.svg?react';
-import MovieInfo from '@/components/MovieInfo/MovieInfo.tsx';
+import BackArrow from '@/shared/assets/images/svg/back-arrow.svg?react';
+import { MovieInfo } from '@/widgets/ui/';
 import { useGetMovieByIdQuery } from '@/modules/movies/api.ts';
 import { useParams } from 'react-router-dom';
-import Skeleton from '@/components/MovieInfo/Skeleton.tsx';
+import Skeleton from '@/widgets/ui/MovieInfo/Skeleton.tsx';
 
 import styles from './MoviePage.module.css';
 

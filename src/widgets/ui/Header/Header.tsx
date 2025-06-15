@@ -1,8 +1,8 @@
-import Container from '../Container/Container.tsx';
-import SearchInput from '../SearchInput/SearchInput.tsx';
+import { Container } from '@/shared/ui/';
 
 import styles from './Header.module.css';
 import { Link } from 'react-router';
+import { SearchInput } from '@/features';
 
 const Header = () => {
   return (

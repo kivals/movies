@@ -1,4 +1,4 @@
-import Container from '@/components/Container/Container.tsx';
+import { Container } from '@/shared/ui/';
 
 import styles from './Footer.module.css';
 import { Link } from 'react-router';

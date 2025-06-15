@@ -1,10 +1,8 @@
-import TabsNavigation from '@/components/TabsNavigation/TabsNavigation.tsx';
-
-import MoviesGrid from '@/components/MoviesGrid/MoviesGrid.tsx';
 import { useGetMoviesQuery } from '@/modules/movies/api.ts';
 import { useAppDispatch, useAppSelector } from '@/app/store.ts';
 import { setFilter } from '@/app/filters.reducer.ts';
-import SkeletonCardList from '@/components/SkeletonCardList/SkeletonCardList.tsx';
+import { SkeletonCardList, TabsNavigation } from '@/features';
+import { MoviesGrid } from '@/widgets/ui';
 
 const PopularSection = () => {
   const activeTab = useAppSelector(

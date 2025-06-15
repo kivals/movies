@@ -1,9 +1,8 @@
-import Header from '@/components/Header/Header.tsx';
-import Footer from '@/components/Footer/Footer.tsx';
+import { Container } from '@/shared/ui/';
+import { Outlet } from 'react-router';
+import { Footer, Header } from '@/widgets/ui';
 
 import styles from './BaseLayout.module.css';
-import Container from '@/components/Container/Container.tsx';
-import { Outlet } from 'react-router';
 
 const BaseLayout = () => {
   return (

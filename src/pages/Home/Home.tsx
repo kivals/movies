@@ -1,6 +1,8 @@
-import IntroSection from '@/components/IntroSection/IntroSection.tsx';
-import PopularSection from '@/components/PopularSection/PopularSection.tsx';
-import MoviesByCategoriesSection from '@/components/MoviesByCategoriesSection/MoviesByCategoriesSection.tsx';
+import {
+  IntroSection,
+  PopularSection,
+  MoviesByCategoriesSection,
+} from '@/widgets/ui';
 
 const Home = () => {
   return (

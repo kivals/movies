@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SearchIcon from '@/assets/images/svg/search.svg?react';
+import SearchIcon from '@/shared/assets/images/svg/search.svg?react';
 import { useNavigate } from 'react-router';
 
 import styles from './SearchInput.module.css';

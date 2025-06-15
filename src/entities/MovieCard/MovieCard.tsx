@@ -1,8 +1,9 @@
-import styles from './MovieCard.module.css';
 import type { Movie } from '@/shared/types/movie.ts';
-import fake_poster from '@/assets/images/fake_poster.png';
+import fake_poster from '@/shared/assets/images/fake_poster.png';
 import { Link } from 'react-router';
 import { prepareUserRating } from '@/shared/utils/user-rating.ts';
+
+import styles from './MovieCard.module.css';
 
 interface MovieCardProps {
   movie: Movie;
